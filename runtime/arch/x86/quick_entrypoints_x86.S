@@ -1934,7 +1934,7 @@ DEFINE_FUNCTION art_quick_generic_jni_trampoline
     // eax: pointer to native code, 0 on error.
     // edx: pointer to the bottom of the used area of the alloca, can restore stack till there.
 
-    // Check for error = 0.
+    // Check for error (locking can throw for synchronized native method).
     test %eax, %eax
     jz .Lexception_in_native
 

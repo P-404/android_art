@@ -1892,7 +1892,7 @@ DEFINE_FUNCTION art_quick_generic_jni_trampoline
     // %rax: pointer to native code, 0 on error.
     // %rdx: pointer to the bottom of the used area of the alloca, can restore stack till there.
 
-    // Check for error = 0.
+    // Check for error (locking can throw for synchronized native method).
     test %rax, %rax
     jz .Lexception_in_native
 
